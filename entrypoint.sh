@@ -20,6 +20,11 @@ WORKDIR=${SRCDIR:-/src}
 SPEC_FILE=${4:-*.spec}
 
 python -m pip install --upgrade pip wheel setuptools
+curl -LO http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
+rm Miniconda3-latest-Linux-x86_64.sh
+PATH=/miniconda/bin:${PATH}
+conda update -y conda
 
 #
 # In case the user specified a custom URL for PYPI, then use
@@ -41,8 +46,8 @@ fi
 
 cd $WORKDIR
 
-pip install pipwin
-pipwin install PyAudio
+conda install libpython m2w64-toolchain -c msys2
+
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
