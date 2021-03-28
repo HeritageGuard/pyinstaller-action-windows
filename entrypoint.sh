@@ -49,7 +49,7 @@ cd $WORKDIR
 
 
 if [ -f requirements.txt ]; then
-    conda install -y --file requirements.txt
+    pip install -r requirements.txt
 fi # [ -f requirements.txt ]
 
 
