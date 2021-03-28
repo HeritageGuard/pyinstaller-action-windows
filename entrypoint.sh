@@ -57,8 +57,8 @@ fi # [ -f requirements.txt ]
 
 
 # if [[ "$@" == "" ]]; then
-/miniconda/bin/pyinstaller --clean --noconsole -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
-chown -R --reference=. ./dist/windows
+/miniconda/bin/pyinstaller --clean -F --noconsole -y --dist /dist/windows --workpath /tmp $SPEC_FILE
+chown -R --reference=. /dist/windows
 # else
     # sh -c "$@"
 # fi # [[ "$@" == "" ]]
