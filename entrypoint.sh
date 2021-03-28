@@ -25,7 +25,9 @@ rm Miniconda3-latest-Linux-x86_64.sh
 PATH=/miniconda/bin:${PATH}
 conda update -y conda
 
-conda install -c conda-forge pip wheel setuptools implicit gcc_linux-64 python-lmdb 
+apt-get install gcc
+
+conda install -c conda-forge pip wheel setuptools implicit python-lmdb 
 #
 # In case the user specified a custom URL for PYPI, then use
 # that one, instead of the default one.
