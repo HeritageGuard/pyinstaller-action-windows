@@ -27,7 +27,7 @@ SPEC_FILE=${4:-*.spec}
 
 apt-get update -qy --fix-missing
 apt-get install -qfy build-essential libdb-dev libffi-dev
-winetricks vcrun2015
+
 # conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
 #
 # In case the user specified a custom URL for PYPI, then use
@@ -48,6 +48,10 @@ if [[ "$PYPI_URL" != "https://pypi.python.org/" ]] || \
 fi
 
 cd $WORKDIR
+wget https://download.visualstudio.microsoft.com/download/pr/1192d0de-5c6d-4274-b64d-c387185e4f45/605089bf72da4da4d27eb0cfcec569ed61f5cf5671aa6d3dece1487abfd62cab/vs_BuildTools.exe
+
+wine vs_BuildTools.exe
+exec wine "vs_BuildTools.exe" "--quiet --add Microsoft.VisualStudio.Workload.VCTools"
 wine python -m pip install --upgrade pip wheel setuptools
 wine pip install implicit lmdb
 
