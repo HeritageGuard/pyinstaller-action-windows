@@ -49,9 +49,7 @@ fi
 
 cd $WORKDIR
 
-wget https://mirror.baidu.com/pypi/packages/87/cc/da20336084729b9a30131aca53b581b64a484fa14c4432def87a03b37035/lmdb-0.98-cp35-cp35m-win_amd64.whl
-
-pip install lmdb-0.98-cp35-cp35m-win_amd64.whl
+pip install python-lmdb=0.98
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
