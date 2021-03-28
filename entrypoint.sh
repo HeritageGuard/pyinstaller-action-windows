@@ -41,7 +41,8 @@ fi
 
 cd $WORKDIR
 
-pip install implicit
+pip install pipwin
+pipwin install PyAudio
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
