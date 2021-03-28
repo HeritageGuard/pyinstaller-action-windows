@@ -54,9 +54,9 @@ wine cmd.exe /C "NDP461-KB3102436-x86-x64-AllOS-ENU.exe /q /norestart"
 wget https://dl.winehq.org/wine/wine-mono/6.1.0/wine-mono-6.1.0-x86.msi
 wine msiexec /i wine-mono-6.1.0-x86.msi
 
-wget https://download.visualstudio.microsoft.com/download/pr/1192d0de-5c6d-4274-b64d-c387185e4f45/605089bf72da4da4d27eb0cfcec569ed61f5cf5671aa6d3dece1487abfd62cab/vs_BuildTools.exe -P /wine/drive_c
+wget https://aka.ms/vs/16/release/vs_buildtools.exe -P /wine/drive_c
 
-wine cmd.exe /C 'C:\vs_BuildTools.exe --quiet || IF "%ERRORLEVEL%"=="3010" EXIT 0' 
+wine cmd.exe /C 'C:\vs_buildtools.exe --quiet || IF "%ERRORLEVEL%"=="3010" EXIT 0' 
 wine python -m pip install --upgrade pip wheel setuptools
 wine pip install implicit lmdb
 
