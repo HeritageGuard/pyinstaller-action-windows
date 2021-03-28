@@ -27,7 +27,7 @@ SPEC_FILE=${4:-*.spec}
 
 apt-get update -qy --fix-missing
 apt-get install -qfy build-essential libdb-dev libffi-dev
-python -m pip install --upgrade pip wheel setuptools
+winetricks vcrun2015
 # conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
 #
 # In case the user specified a custom URL for PYPI, then use
