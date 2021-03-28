@@ -25,7 +25,8 @@ rm Miniconda3-latest-Linux-x86_64.sh
 PATH=/miniconda/bin:${PATH}
 conda update -y conda
 
-apt-get install -qfy gcc
+apt-get update -qy --fix-missing
+apt-get install -qfy build-essential
 
 conda install -c conda-forge pip wheel setuptools implicit python-lmdb 
 #
