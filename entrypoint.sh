@@ -26,7 +26,7 @@ SPEC_FILE=${4:-*.spec}
 # conda update -y conda
 
 apt-get update -qy --fix-missing
-apt-get install -qfy build-essential libdb-dev py-lmdb=0.98-1
+apt-get install -qfy build-essential libdb-dev python-lmdb=0.98-1
 
 # conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
 #
