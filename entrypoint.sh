@@ -23,6 +23,7 @@ wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
 rm Miniconda3-latest-Linux-x86_64.sh
 PATH=/miniconda/bin:${PATH}
+conda activate
 conda update -y conda
 
 apt-get update -qy --fix-missing
@@ -57,7 +58,7 @@ fi # [ -f requirements.txt ]
 
 
 # if [[ "$@" == "" ]]; then
-pyinstaller -F --clean -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
+pyinstaller --clean --noconsole -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
 chown -R --reference=. ./dist/windows
 # else
     # sh -c "$@"
