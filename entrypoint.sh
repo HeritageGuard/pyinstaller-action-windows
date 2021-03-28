@@ -46,7 +46,7 @@ fi
 
 cd $WORKDIR
 
-conda install -c conda-forge implicit gcc python-lmdb 
+conda install -c conda-forge implicit gcc_linux-64 python-lmdb 
 
 
 if [ -f requirements.txt ]; then
