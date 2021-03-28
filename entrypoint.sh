@@ -45,10 +45,11 @@ if [ -f requirements.txt ]; then
     pip install -r requirements.txt
 fi # [ -f requirements.txt ]
 
-
+conda install -c conda-forge implicit
+pip install -U setuptools
 
 # if [[ "$@" == "" ]]; then
-pyinstaller --clean -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
+pyinstaller -F --clean -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
 chown -R --reference=. ./dist/windows
 # else
     # sh -c "$@"
