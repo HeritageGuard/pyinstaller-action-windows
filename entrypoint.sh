@@ -26,7 +26,7 @@ SPEC_FILE=${4:-*.spec}
 # conda update -y conda
 
 apt-get update -qy --fix-missing
-apt-get install -qfy build-essential libdb-dev
+apt-get install -qfy build-essential libdb-dev libffi-dev python-dev 
 python -m pip install --upgrade pip wheel setuptools
 # conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
 #
@@ -49,7 +49,7 @@ fi
 
 cd $WORKDIR
 
-pip install python-lmdb
+pip install lmdb
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
