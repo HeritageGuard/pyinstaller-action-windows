@@ -27,7 +27,7 @@ SPEC_FILE=${4:-*.spec}
 
 apt-get update -qy --fix-missing
 apt-get install -qfy build-essential libdb-dev
-
+python -m pip install --upgrade pip wheel setuptools
 # conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
 #
 # In case the user specified a custom URL for PYPI, then use
@@ -49,7 +49,7 @@ fi
 
 cd $WORKDIR
 
-pip install python-lmdb=0.98
+pip install python-lmdb
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
