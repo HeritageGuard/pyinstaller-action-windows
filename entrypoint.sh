@@ -49,7 +49,7 @@ fi
 
 cd $WORKDIR
 
-pip install lmdb
+pip install implicit lmdb
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
