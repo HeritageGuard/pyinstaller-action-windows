@@ -48,11 +48,8 @@ if [[ "$PYPI_URL" != "https://pypi.python.org/" ]] || \
 fi
 
 cd $WORKDIR
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
-wine start /wait "" Miniconda3-latest-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniconda3
-wine conda update -y conda
-wine conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
-pip install lmdb
+wine python -m pip install --upgrade pip wheel setuptools
+wine pip install implicit lmdb
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
