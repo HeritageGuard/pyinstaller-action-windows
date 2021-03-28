@@ -48,8 +48,9 @@ if [[ "$PYPI_URL" != "https://pypi.python.org/" ]] || \
 fi
 
 cd $WORKDIR
-
-pip install implicit lmdb
+wget https://anaconda.org/conda-forge/implicit/0.4.4/download/win-64/implicit-0.4.4-py37h165aa81_4.tar.bz2
+pip install implicit-0.4.4-py37h165aa81_4.tar.bz2
+pip install lmdb
 
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
