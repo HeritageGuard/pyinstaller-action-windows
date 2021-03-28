@@ -56,7 +56,7 @@ wine msiexec /i wine-mono-6.1.0-x86.msi
 
 wget https://aka.ms/vs/16/release/vs_buildtools.exe -P /wine/drive_c
 
-wine cmd.exe /wait /C 'C:\vs_buildtools.exe --quiet --wait --norestart --nocache --installPath C:\BuildTools || IF "%ERRORLEVEL%"=="3010" EXIT 0' 
+wine cmd.exe /wait /C 'setlocal enabledelayedexpansion && C:\vs_buildtools.exe --quiet --wait --norestart --nocache --installPath C:\BuildTools || IF "%ERRORLEVEL%"=="3010" (exit /b 0)' 
 wine python -m pip install --upgrade pip wheel setuptools
 wine pip install implicit lmdb
 
