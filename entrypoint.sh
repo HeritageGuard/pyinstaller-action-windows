@@ -19,16 +19,16 @@ WORKDIR=${SRCDIR:-/src}
 
 SPEC_FILE=${4:-*.spec}
 
-wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
-bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
-rm Miniconda3-latest-Linux-x86_64.sh
-PATH=/miniconda/bin:${PATH}
-conda update -y conda
+# wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+# bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
+# rm Miniconda3-latest-Linux-x86_64.sh
+# PATH=/miniconda/bin:${PATH}
+# conda update -y conda
 
 apt-get update -qy --fix-missing
-apt-get install -qfy build-essential
+apt-get install -qfy build-essential libdb-dev
 
-conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
+# conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
 #
 # In case the user specified a custom URL for PYPI, then use
 # that one, instead of the default one.
@@ -52,13 +52,13 @@ cd $WORKDIR
 
 
 if [ -f requirements.txt ]; then
-    /miniconda/bin/pip install -r requirements.txt
+    pip install -r requirements.txt
 fi # [ -f requirements.txt ]
 
 
 # if [[ "$@" == "" ]]; then
-/miniconda/bin/pyinstaller --clean -F --noconsole -y --dist $WORKDIR/dist/windows --workpath /tmp $SPEC_FILE
-chown -R --reference=. $WORKDIR/dist/windows
+pyinstaller --clean -F --noconsole -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
+chown -R --reference=. ./dist/windows
 # else
     # sh -c "$@"
 # fi # [[ "$@" == "" ]]
