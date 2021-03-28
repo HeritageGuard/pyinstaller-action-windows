@@ -19,13 +19,13 @@ WORKDIR=${SRCDIR:-/src}
 
 SPEC_FILE=${4:-*.spec}
 
-python -m pip install --upgrade pip wheel setuptools
 wget http://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
 bash Miniconda3-latest-Linux-x86_64.sh -p /miniconda -b
 rm Miniconda3-latest-Linux-x86_64.sh
 PATH=/miniconda/bin:${PATH}
 conda update -y conda
 
+conda install -c conda-forge pip wheel setuptools implicit gcc_linux-64 python-lmdb 
 #
 # In case the user specified a custom URL for PYPI, then use
 # that one, instead of the default one.
@@ -46,7 +46,6 @@ fi
 
 cd $WORKDIR
 
-conda install -c conda-forge implicit gcc_linux-64 python-lmdb 
 
 
 if [ -f requirements.txt ]; then
