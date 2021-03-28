@@ -50,7 +50,7 @@ conda install -c conda-forge implicit gcc_linux-64 python-lmdb
 
 
 if [ -f requirements.txt ]; then
-    pip install -r requirements.txt
+    conda install -y --file requirements.txt
 fi # [ -f requirements.txt ]
 
 
