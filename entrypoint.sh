@@ -26,7 +26,7 @@ SPEC_FILE=${4:-*.spec}
 # conda update -y conda
 
 apt-get update -qy --fix-missing
-apt-get install -qfy build-essential libdb-dev libffi-dev wine-mono
+apt-get install -qfy build-essential
 
 # conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
 #
@@ -50,6 +50,9 @@ fi
 cd $WORKDIR
 wget https://download.microsoft.com/download/E/4/1/E4173890-A24A-4936-9FC9-AF930FE3FA40/NDP461-KB3102436-x86-x64-AllOS-ENU.exe
 wine cmd.exe /C "NDP461-KB3102436-x86-x64-AllOS-ENU.exe /q /norestart"
+
+wget https://dl.winehq.org/wine/wine-mono/6.1.0/wine-mono-6.1.0-x86.msi
+wine msiexec /i wine-mono-6.1.0-x86.msi
 
 wget https://download.visualstudio.microsoft.com/download/pr/1192d0de-5c6d-4274-b64d-c387185e4f45/605089bf72da4da4d27eb0cfcec569ed61f5cf5671aa6d3dece1487abfd62cab/vs_BuildTools.exe
 
