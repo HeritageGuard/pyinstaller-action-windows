@@ -41,12 +41,13 @@ fi
 
 cd $WORKDIR
 
+conda install -c conda-forge implicit
+pip install -U setuptools
+
 if [ -f requirements.txt ]; then
     pip install -r requirements.txt
 fi # [ -f requirements.txt ]
 
-conda install -c conda-forge implicit
-pip install -U setuptools
 
 # if [[ "$@" == "" ]]; then
 pyinstaller -F --clean -y --dist ./dist/windows --workpath /tmp $SPEC_FILE
