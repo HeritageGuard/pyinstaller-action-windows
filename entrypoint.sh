@@ -49,7 +49,7 @@ fi
 
 cd $WORKDIR
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe
-wine Miniconda3-latest-Windows-x86_64.exe
+wine Miniconda3-latest-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniconda3
 wine conda update -y conda
 wine conda install -c conda-forge pip wheel setuptools implicit python-lmdb pyinstaller
 pip install lmdb
