@@ -46,7 +46,7 @@ fi
 
 cd $WORKDIR
 
-conda install libpython m2w64-toolchain -c msys2
+conda install -c conda-forge implicit
 
 
 if [ -f requirements.txt ]; then
